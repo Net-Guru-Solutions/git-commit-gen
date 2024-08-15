@@ -1,3 +1,4 @@
+import { ThemeProvider } from "@/components/layout/theme-provider";
 import { Inter as FontSans } from "next/font/google"
 import type { Metadata } from "next";
 import { ReactNode } from "react";
@@ -28,7 +29,14 @@ export default function RootLayout({ children }: RootLayoutProps) {
           fontSans.variable
         )}
       >
-        {children}
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
+        >
+          {children}
+        </ThemeProvider>
       </body>
     </html>
   );
